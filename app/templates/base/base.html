@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LaptopLT | Sản phẩm laptop uy tín và chất lượng</title>
+
+    <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/owl.carousel.css') }}" rel="stylesheet"/>
+    <link href="{{ url_for('static', filename='css/responsive.css') }}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="https://kit.fontawesome.com/c48c3277a6.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+</head>
+
+<body>
+<div>
+     <img src="{{url_for('static',filename='images/banner5.jpg')}}"  alt="logo">
+</div>
+<div class="nav_area">
+    <nav class="navi">
+        <ul class="navul">
+            <li class="navItem"><a class="navNameItem" href="{{ url_for('index')}}">Trang chủ</a></li>
+            <li class="navItem"><a class="navNameItem" href="{{ url_for('laptop') }}">Laptop</a></li>
+            <li class="navItem"><a class="navNameItem" href="{{ url_for('repair') }}">Sửa chữa</a></li>
+            <li class="navItem"><a class="navNameItemLogin" href="{{ url_for('login') }}"><i class="far fa-user"></i>Đăng nhập</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+{% block content %}
+{% include 'base/content.html' %}
+{% endblock %}
+
+
+{% block footer %}
+{% include 'base/footer.html' %}
+{% endblock %}
+
+
+</body>
+</html>

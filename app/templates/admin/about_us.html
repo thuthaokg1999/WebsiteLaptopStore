@@ -1,0 +1,101 @@
+{% extends "admin/master.html" %}
+
+{% block body %}
+{% if current_user.is_authenticated %}
+<form method="post" class="container">
+    {% if err %}
+
+    <div class="container alert alert-warning alert-dismissable" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+        <div class="alert-icon">
+            <i class="far fa-times-circle">{{err}}</i>
+        </div>
+
+    </div>
+    {% endif %}
+
+    {% if msg %}
+    <div class="container alert alert-info alert-dismissable" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+        <div class="alert-icon">
+            <i class="far fa-check-circle">{{msg}}</i>
+        </div>
+    </div>
+    {% endif %}
+    {% if sb %}
+    <table class="table">
+        <h3 class="text-info text-center">DANH SÁCH ĐƠN HÀNG CẦN DUYỆT</h3>
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col" style="width: 200px">Tên sản phẩm</th>
+            <th scope="col">Ngày mua hàng</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Màu sắc</th>
+            <th scope="col">Thành tiền</th>
+            <th scope="col">Tình trạng đơn hàng</th>
+            <th scope="col">Cập nhật</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for s in sb %}
+        <tr id="sb_{{ s.id}}">
+            <th scope="row">{{ s.id }}</th>
+            <td>{{ s.name }}</td>
+            <td>{{ s.date }}</td>
+            <td>{{ s.quantity }}</td>
+            <td>{{ s.color }}</td>
+            <td>{{ s.sum }}</td>
+            <td>{{ s.status }}</td>
+            <td>
+                <select class="form-control" name="or_status">
+                    <option value="Đơn hàng đã duyệt" class="text-dark">Đơn hàng đã duyệt</option>
+                    <option value="Hủy đơn hàng" class="text-danger bold">Hủy đơn hàng</option>
+                </select>
+            </td>
+            <td style="width: 100px">
+                <input type="submit" class="btn btn-xs btn-pro-detail" value="Duyệt"/>
+                <input type="hidden" name="s_id" value="{{ s.id }}"/>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+    <div class="col-md-4">
+            <a href="/admin/delivery" class="btn btn-info text-center"
+               style="margin-top: 22px; margin-left: 830px;"> ==> DANH SÁCH ĐƠN HÀNG CẦN GIAO</a>
+        </div>
+    {% else %}
+    <div><h3 class="text-info text-center">KHÔNG CÓ ĐƠN HÀNG CẦN DUYỆT!!!</h3></div>
+    {% endif %}
+
+</form>
+
+
+<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet"/>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!--slick-->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<!--jQuery custom -->
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+<!--fontawesome-->
+<script src="https://kit.fontawesome.com/c48c3277a6.js" crossorigin="anonymous"></script>
+{% else %}
+{% include "admin/login.html" %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email</title>
+</head>
+<body>
+<div class="container">
+    <h3 class="text-info" style="margin-left: 10px;">THÔNG TIN ĐƠN HÀNG</h3>
+
+    <ul class="thankfor">
+        <li class="text-info">Xin chào bạn!</li>
+        <li class="text-info">Cảm ơn bạn đã tin tưởng mua hàng tại cửa hàng của chúng tôi!</li>
+        <li class="text-info">Dưới đây là thông tin chi tiết đơn hàng của bạn!</li>
+        <li class="text-info">Mọi thắc mắc vui lòng liên hệ đến Trung tâm chăm sóc khách hàng:<strong><span
+                style="color:red">028 6265 7027</span></strong>
+        </li>
+    </ul>
+
+    <table class="table e_table table-light">
+        <thead class="thead-dark bg-primary">
+        <tr>
+            <th scope="col">Danh mục</th>
+            <th scope="col">Thông tin</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Hình ảnh sản phẩm</th>
+            <td><img src="{{ img }}" alt="img"/></td>
+        </tr>
+        <tr>
+            <th scope="row">Tên sản phẩm</th>
+            <td>{{ name }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Ngày mua</th>
+            <td>{{ date }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Số lượng</th>
+            <td>{{ quantity }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Đơn giá</th>
+            <td>{{ price }}</td>
+        </tr>
+        <tr>
+            <th scope="row">Thành tiền</th>
+            <td>{{ sum }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

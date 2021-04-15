@@ -1,0 +1,122 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="container ">
+    <div class="text-center">
+        <h2 style="color: red">BẠN MUỐN SỬA CHỮA SẢN PHẨM?</h2>
+        <h4>Hãy liên hệ ngay đến số điện thoại trung tâm sửa chữa của chúng tôi: <strong><span style="color:red">0358.666.999</span></strong>
+        </h4>
+        <br>
+        <marquee scrollamount="10"><h3 style="color: orange">TƯ VẤN TẬN TÂM - NHIỆT THÀNH - UY TÍN - CHẤT LƯỢNG - GIÁ PHẢI CHĂNG</h3></marquee>
+        <br>
+    </div>
+    <div>
+        <h4>Nhằm giúp quý khách có thể nắm giá cả dịch vụ, chúng tôi cung cấp bảng giá sửa chữa dưới đây để quý khách có
+            thể tham khảo:</h4>
+        <table class="table table-bordered table-dark">
+            <thead class="bg-danger">
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Tên lỗi</th>
+                <th scope="col" style="width: 450px;">Mô tả hiện tượng</th>
+                <th scope="col">Model máy</th>
+                <th scope="col">Giá sửa</th>
+                <th scope="col">Bảo hành(Tháng)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Lỗi nguồn</td>
+                <td>Không vào nguồn, bật nguồn không lên gì, bật nguồn nhưng ngắt nguồn(Lỗi IC, I/O)</td>
+                <td>
+                    <ul>
+                        <li>Duo Core - Core 2</li>
+                        <li>Core i3, i5, i7 - Thế hệ 1</li>
+                        <li>Core i3, i5, i7 - Thế hệ 2</li>
+                        <li>Core i3, i5, i7 - Thế hệ 3,4</li>
+                        <li>Macbook</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>200k-350k</li>
+                        <li>300k-450k</li>
+                        <li>400k-550k</li>
+                        <li>500k-700k</li>
+                        <li>800k-1000k</li>
+                    </ul>
+                </td>
+                <td>1-3 tháng</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Không nhận thiết bị</td>
+                <td>Không nhận thiết bị ngoại vi: HDD, DVD, Keyboard, USB, chuột cảm ứng wireless, LAN, Bluetooth, mạch
+                    sạc pin, âm thanh
+                </td>
+                <td>
+                    <ul>
+                        <li>Duo Core - Core 2</li>
+                        <li>Core i3, i5, i7 - Thế hệ 1,2</li>
+                        <li>Core i3, i5, i7 - Thế hệ 3,4</li>
+                    </ul>
+                </td>
+                <td><ul>
+                        <li>250k</li>
+                        <li>350k-450k</li>
+                        <li>500k-700k</li>
+                    </ul></td>
+                <td>1-3 tháng</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Lỗi tín hiệu</td>
+                <td>Không lên tín hiệu, LCD nhòe, treo, dump, lỗi Chipset card VGA, chipset card cầu nam, cầu bắc</td>
+                <td><ul>
+                        <li>Duo Core - Core 2</li>
+                        <li>Core i3, i5, i7 - Thế hệ 1,2</li>
+                        <li>Core i3, i5, i7 - Thế hệ 3,4</li>
+                    </ul></td>
+                <td><ul>
+                        <li>350k</li>
+                        <li>350k-650k</li>
+                        <li>650k-800k</li>
+                    </ul></td>
+                <td>1-3 tháng</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Lỗi ánh sáng</td>
+                <td>Tối mờ màn hình</td>
+                <td>Từ Duo Core trở lên</td>
+                <td><ul><li>300k-450k</li></ul></td>
+                <td>12 tháng</td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td>Lỗi cơ khí(Máy nóng)</td>
+                <td>Quạt kêu, gãy bản lề</td>
+                <td>Từ Core i3 trở lên</td>
+                <td><ul><li>350k-550k</li></ul></td>
+                <td>12 tháng</td>
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+                <td>Bảo dưỡng</td>
+                <td>Vệ sinh máy, sữa phần mềm, vệ sinh quạt,...</td>
+                <td>Từ Centrio trở lên</td>
+                <td><ul><li>150k</li></ul></td>
+                <td>12 tháng</td>
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td colspan="2">Dịch vụ bảo dưỡng laptop tại nhà</td>
+                <td>5-10 máy trở lên</td>
+                <td><ul><li>80k-200k</li></ul></td>
+                <td>12 tháng</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<script>
+    function calculatePrice() {
+        var pr = 0;
+        var sl = document.getElementById("quantity").value;
+        var dg = document.getElementById("price").value;
+
+        soluong = parseFloat(sl);
+         console.log(soluong);
+        dongia = parseFloat(dg);
+        console.log(dg);
+        pr = soluong * dongia;
+        console.log(pr);
+
+        return document.getElementById("sum").value  = pr.toFixed(0).toString();
+    }
+
+
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<div class="buyproduct container">
+    <br>
+    {% if msg %}
+
+    <div class="alert alert-success alert-dismissable" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">x</span>
+        </button>
+        <div class="alert-icon text-center">
+            <i class="far fa-check-circle">{{msg}}</i>
+        </div>
+
+    </div>
+    {% endif %}
+    <form method="post">
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        <div class="b_con">
+            <div class="row b_content">
+                <div class="col-md-4 b_left">
+                    <div class="b_product_info">
+                        <img class="pro-image"
+                             src="{{ product.image1 }}"/>
+                        <h3 class="text-info">Tên sản phẩm: {{ product.name }}</h3>
+                        <input type="hidden" name="product_name" value="{{ product.name }}">
+                        <div class="form-group">
+                            <label>Màu sắc</label><br>
+                            <select class="form-control" name="color">
+                                {% for c in colors %}
+                                <option value="{{ c.color }}" class="text-dark">{{ c.color }}
+                                </option>
+                                {% endfor%}
+                            </select><br>
+                            <label>Số lượng</label><br>
+                            <input type="number" name="quantity" id="quantity" class="form-control" required min="0"
+
+                                   onChange="calculatePrice()"
+                                   oninvalid="this.setCustomValidity('Vui lòng chọn số lượng!')"
+                                   oninput="this.setCustomValidity('')"/><br>
+                            <label>Đơn giá</label><br>
+                            <input type="number" name="price" id="price" class="form-control" disabled
+                                   value="{{ product.price }}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="text-danger">Thành tiền </label><br>
+                            <input id="sum" name="sum" type="text"/><span class="text-danger"
+                                                                          style="margin-left: 5px;">vnđ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 b_right">
+                    <div class="b_customer_info">
+                        <div class="form-group">
+                            <label for="date" id="date">Ngày mua hàng: </label>
+                            <input type="datetime-local" name="date" class="form-control" required
+                                   oninvalid="this.setCustomValidity('Vui lòng chọn ngày!')"
+                                   oninput="this.setCustomValidity('')"/><br>
+                        </div>
+
+                        <h3>Thông tin khách hàng</h3>
+                        <div class="form-group">
+                            <label for="name" id="name">Tên khách hàng</label><br>
+                            <input type="text" name="name" class="form-control" required
+                                   oninvalid="this.setCustomValidity('Vui lòng nhập tên khách hàng!') "
+                                   oninput="this.setCustomValidity('')"/><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" id="phone">Số điện thoại</label><br>
+                            <input type="number" name="phone" class="form-control" required maxlength="10"
+                                   oninvalid="this.setCustomValidity('Vui lòng nhập số điện thoại!')"
+                                   oninput="this.setCustomValidity('')"/><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" id="address">Địa chỉ</label><br>
+                            <input type="text" name="address" class="form-control" required
+                                   oninvalid="this.setCustomValidity('Vui lòng nhập địa chỉ!')"
+                                   oninput="this.setCustomValidity('')"/><br>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" id="email">Email</label><br>
+                            <input type="email" name="email" class="form-control" required
+                                   oninvalid="this.setCustomValidity('Vui lòng nhập email!')"
+                                   oninput="this.setCustomValidity('')"/><br>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Mua hàng" class="btn btn-warning"/>
+                            <button class="btn btn-light"><a href="{{ url_for('index')}}">Trở về</a></button>
+                            <br>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

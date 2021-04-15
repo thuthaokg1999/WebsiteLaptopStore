@@ -1,0 +1,145 @@
+{% extends "admin/master.html" %}
+
+{% block body %}
+{% if current_user.is_authenticated %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="text-info float-left">Chào mừng {{ current_user.name }} tới trang quản trị!</h1>
+        </div>
+        <div class="col-md-4">
+            <a href="{{ url_for('index')}}" class="btn btn-warning text-center"
+               style="margin-top: 22px; margin-left: 65px;">TRỞ VỀ TRANG DÀNH CHO KHÁCH HÀNG</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3 ad_item">
+            <h3 class="text-info text-center ">Sản phẩm</h3>
+            <hr>
+            <ol class="ad_ul">
+                <li><a href="/admin/product" class="btn btn-info text-center">XEM SẢN PHẨM</a><br><br></li>
+                <li><a href="/admin/product/new/?url=%2Fadmin%2Fproduct%2F" class="btn btn-success text-center">THÊM SẢN
+                    PHẨM</a></li>
+            </ol>
+        </div>
+        <div class="col-md-3 ad_item">
+            <h3 class="text-info text-center">Khách hàng</h3>
+            <hr>
+            <ol class="ad_ul">
+                <li><a href="/admin/customer" class="btn btn-info text-center">XEM KHÁCH HÀNG</a><br><br></li>
+                <li><a href="/admin/customer/new/?url=%2Fadmin%2Fcustomer%2F" class="btn btn-success text-center">THÊM
+                    KHÁCH HÀNG</a></li>
+            </ol>
+        </div>
+        <div class="col-md-3 ad_item">
+            <h3 class="text-info text-center">Nhà cung cấp</h3>
+            <hr>
+            <ol class="ad_ul">
+                <li><a href="/admin/supplier" class="btn btn-info text-center">XEM NHÀ CUNG CẤP</a><br><br></li>
+                <li><a href="/admin/supplier/new/?url=%2Fadmin%2Fsupplier%2F" class="btn btn-success text-center">THÊM NHÀ
+                    CUNG CẤP</a></li>
+            </ol>
+        </div>
+        <div class="col-md-3 ad_item">
+            <h3 class="text-info text-center">Thông tin khuyến mãi</h3>
+            <hr>
+            <ol class="ad_ul">
+                <li><a href="/admin/saleinfo" class="btn btn-info text-center">XEM KHUYẾN MÃI</a><br><br></li>
+                <li><a href="/admin/saleinfo/new/?url=%2Fadmin%2Fsaleinfo%2F" class="btn btn-success text-center">THÊM
+                    KHUYẾN MÃI</a></li>
+            </ol>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-3 ad_item" style="height: 300px">
+            <h3 class="text-info text-center ">Loại sản phẩm</h3>
+            <hr>
+            <ol class="ad_ul">
+                <li><a href="/admin/category" class="btn btn-info text-center">XEM LOẠI SẢN PHẨM</a><br><br></li>
+                <li><a href="/admin/category/new/?url=%2Fadmin%2Fcategory%2F" class="btn btn-success text-center">THÊM LOẠI
+                    SẢN PHẨM</a></li>
+            </ol>
+        </div>
+        <div class="col-md-3 ad_item" style="height: 300px">
+            <h3 class="text-info text-center">Hóa đơn bán hàng</h3>
+            <hr>
+            <ol class="ad_ul">
+                <li><a href="/admin/salesbill" class="btn btn-info text-center">XEM HÓA ĐƠN BÁN</a><br><br></li>
+                <li><a href="/admin/salesbill/new/?url=%2Fadmin%2Fsalesbill%2F" class="btn btn-success text-center">THÊM
+                    HÓA ĐƠN BÁN</a></li><br>
+                <li><a href="/admin/invoiceapproval/" class="btn btn-primary text-center">ĐƠN HÀNG CẦN DUYỆT</a></li><BR>
+                <li><a href="/admin/delivery/" class="btn btn-warning text-center">ĐƠN HÀNG CẦN GIAO</a></li>
+            </ol>
+        </div>
+        <div class="col-md-3 ad_item" style="height: 300px">
+            <h3 class="text-info text-center">Hóa đơn nhập hàng</h3>
+            <hr>
+            <ol class="ad_ul">
+                <li><a href="/admin/receipt" class="btn btn-info text-center">XEM HÓA ĐƠN NHẬP</a><br><br></li>
+                <li><a href="/admin/receipt/new/?url=%2Fadmin%2Freceipt%2F" class="btn btn-success text-center">THÊM HÓA
+                    ĐƠN NHẬP</a></li>
+            </ol>
+        </div>
+        <div class="col-md-3 ad_item" style="height: 300px">
+            <h3 class="text-info text-center">Màu sắc sản phẩm</h3>
+            <hr>
+            <ol class="ad_ul">
+                <li><a href="/admin/color" class="btn btn-info text-center">XEM DANH SÁCH</a><br><br></li>
+                <li><a href="/admin/color/new/?url=%2Fadmin%2Fcolor%2F" class="btn btn-success text-center">THÊM MÀU</a>
+                </li>
+            </ol>
+        </div>
+        <br>
+    </div>
+    <h2 class="text-danger">Muốn sửa/xóa thông tin?</h2>
+    <ul>
+        <li><strong>Bước 1.</strong> Chọn nút <a href="#" class="btn btn-info text-center">XEM ...</a>. Ví dụ: <a
+                href="/admin/product" class="btn btn-info text-center">XEM SẢN PHẨM</a></li>
+        <li><strong>Bước 2.</strong> Chọn biểu tượng <i class="fas fa-pencil-alt"></i> để sửa thông tin || Chọn biểu
+            tượng <i class="fas fa-trash-alt"></i> để xóa thông tin.
+        </li>
+    </ul>
+
+    <h2 class="text-danger">Muốn xuất thông tin ra file excel?</h2>
+    <ul>
+        <li><strong>Bước 1.</strong> Chọn nút <a href="#" class="btn btn-info text-center">XEM ...</a>. Ví dụ: <a
+                href="/admin/product" class="btn btn-info text-center">XEM SẢN PHẨM</a></li>
+        <li><strong>Bước 2.</strong> Chọn Export</li>
+    </ul>
+    <br>
+    <div class="row" style="background-color: #26272b; height: 60px; color: white">
+        <div class="col" style="margin-left: 15px;">
+            <h5 class="text-justify">Thông tin liên hệ:</h5>
+            <i class="fas fa-inbox">__devqna@gmail.com</i> |
+            <i class="fas fa-phone-volume">__0358.000.333</i> |
+            <i class="fas fa-map-marked-alt">__371 Nguyễn Kiệm, phường 3, Gò vấp, Tp.Hồ Chí Minh</i>
+            <br>
+        </div>
+
+    </div>
+
+</div>
+
+
+<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet"/>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<!--slick-->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<!--jQuery custom -->
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+<!--fontawesome-->
+<script src="https://kit.fontawesome.com/c48c3277a6.js" crossorigin="anonymous"></script>
+{% else %}
+{% include "admin/login.html" %}
+{% endif %}
+{% endblock %}
